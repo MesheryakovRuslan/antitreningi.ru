@@ -2,7 +2,6 @@ package lesson1.task1;
 
 public class Main {
     public static void main(String[] args) {
-        // write your code here
 
         Phone onePhone = new Phone("89111111111","A15","40");
         System.out.println("Number: " + onePhone.getNumber() + " Model: " + onePhone.getModel() + " Weight: " + onePhone.getWeight());
