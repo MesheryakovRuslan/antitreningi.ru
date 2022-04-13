@@ -33,25 +33,31 @@ public class Main {
         Matcher matcherLogin = pattern.matcher(login);
         Matcher matcherPassword = pattern.matcher(password);
         try {
-            if (matcherLogin.matches() && login.length() < 20) {
-                System.out.println("Логин пдтверждён");
-            } else {
+            if (!matcherLogin.matches()){
                 throw new WrongLoginException(100, "login incorrect");
             }
 
-            if (!matcherPassword.matches() && !(password.length() < 20)){
-                throw new WrongPasswordException(101, "password incorrect");
+            if (login.length() > 20){
+                throw new WrongLoginException(101, "too long login");
+            }
+
+            if (!matcherPassword.matches()){
+                throw new WrongPasswordException(102, "password incorrect");
+            }
+
+            if (password.length() > 20){
+                throw new WrongPasswordException(103, "too long password");
             }
 
             if (password.equals(confirmPassword)){
                 System.out.println("Пароль пдтверждён");
             } else {
-                throw new WrongPasswordException(101, "passwords do not match");
+                throw new WrongPasswordException(104, "passwords do not match");
             }
 
             return true;
         } catch (WrongLoginException | WrongPasswordException  e) {
-            System.out.println("Exception: " + e.toString());
+            System.err.println("Exception: " + e.toString());
             return false;
         }
     }
