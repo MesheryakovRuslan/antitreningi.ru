@@ -31,7 +31,7 @@ public class Main {
     public static boolean userAuthentication(String login, String password, String loginUser, String passwordUser){
         try {
             if (!login.equals(loginUser)){
-                //throw new WrongLoginException(100,"login incorrect");
+                throw new WrongLoginException(100,"login incorrect");
             }
 
             if(!password.equals(passwordUser)){
@@ -39,10 +39,11 @@ public class Main {
             }
 
             return true;
-        } catch ( WrongPasswordException e) {
+        } catch ( WrongPasswordException | WrongLoginException e) {
             e.printStackTrace();
             return false;
         }
+        // WrongLoginException{detail = 101 message = password incorrect}(Верный логин, не верный пароль) Одна ошибка с текстом другой.
     }
 
 }
