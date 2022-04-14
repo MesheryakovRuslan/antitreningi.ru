@@ -3,7 +3,7 @@ package lesson9.task1;
 public class WrongPasswordException extends Exception {
     private int detail;
 
-    WrongPasswordException(int detail, String message) {
+    public WrongPasswordException(int detail, String message) {
         super(message);
         this.detail = detail;
     }
