@@ -31,23 +31,23 @@ public class Main {
         Matcher matcherLogin = pattern.matcher(login);
         Matcher matcherPassword = pattern.matcher(password);
         try {
-            if (!matcherLogin.matches()){
+            if (!matcherLogin.matches()) {
                 throw new WrongLoginException(100, "login incorrect");
             }
 
-            if (login.length() > 20){
+            if (login.length() > 20) {
                 throw new WrongLoginException(101, "too long login");
             }
 
-            if (!matcherPassword.matches()){
+            if (!matcherPassword.matches()) {
                 throw new WrongPasswordException(102, "password incorrect");
             }
 
-            if (password.length() > 20){
+            if (password.length() > 20) {
                 throw new WrongPasswordException(103, "too long password");
             }
 
-            if (password.equals(confirmPassword)){
+            if (password.equals(confirmPassword)) {
                 System.out.println("Пароль пдтверждён");
             } else {
                 throw new WrongPasswordException(104, "passwords do not match");

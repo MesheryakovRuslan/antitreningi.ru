@@ -21,20 +21,20 @@ public class Main {
         Scanner passwordScanner = new Scanner(System.in);
         password = passwordScanner.nextLine();
 
-        if(userAuthentication(login,password,loginUser,passwordUser)){
+        if(userAuthentication(login,password,loginUser,passwordUser)) {
             System.out.println("Добро пожаловать");
         }else {
             System.out.println("Не верный логин или пароль");
         }
     }
 
-    public static boolean userAuthentication(String login, String password, String loginUser, String passwordUser){
+    public static boolean userAuthentication(String login, String password, String loginUser, String passwordUser) {
         try {
-            if (!login.equals(loginUser)){
+            if (!login.equals(loginUser)) {
                 throw new WrongLoginException(100,"login incorrect");
             }
 
-            if(!password.equals(passwordUser)){
+            if(!password.equals(passwordUser)) {
                 throw new WrongPasswordException(101,"password incorrect");
             }
 
