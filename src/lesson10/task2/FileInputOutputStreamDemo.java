@@ -9,7 +9,11 @@ import java.io.IOException;
 public class FileInputOutputStreamDemo {
     public static void main(String[] args) {
 
-        try(OutputStream output = new FileOutputStream("src\\lesson10\\file.txt");InputStream input = new FileInputStream("src\\lesson10\\file.txt");) {
+        String filePath = "src\\lesson10\\file.txt";
+
+        try(OutputStream output = new FileOutputStream(filePath);
+            InputStream input = new FileInputStream(filePath);) {
+
             char[] symbols = {'a', 'b', 'c'};
             for (char symbol: symbols) {
                 // Запись каждого символа в текстовый файл
@@ -24,7 +28,7 @@ public class FileInputOutputStreamDemo {
             }
 
         } catch (IOException e) {
-            System.out.print("Exception");
+            e.printStackTrace();
         }
     }
 }
