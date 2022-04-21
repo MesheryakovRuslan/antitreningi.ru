@@ -9,7 +9,6 @@ public abstract class Technics implements Serializable {
     private String model;
     private int productsId;
 
-
     public String getModel() {
         return model;
     }
